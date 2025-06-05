@@ -31,7 +31,7 @@ jobs:
         cache-dependency-path: ./HeroesDemo/package-lock.json
         cache: 'npm'
     - run: npm ci
-      working-directory: ./HeroesDemo
+      #working-directory: ./HeroesDemo
     - run: npm run build --if-present
-      working-directory: ./HeroesDemo
+      #working-directory: ./HeroesDemo
     #- run: npm test
