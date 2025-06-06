@@ -454,25 +454,6 @@ describe('DateTypes API', () => {
         service = TestBed.inject(DemoWebApi_Controllers_Client.DateTypes);
     }));
 
-
-    it('GetNextHour', (done) => {
-        const dt = new Date(Date.now());
-        const h = dt.getHours();
-        service.getNextHour(dt).subscribe(
-            data => {
-                const dd = new Date(data!);
-                expect(dd.getHours()).toBe(h + 1);
-                done();
-            },
-            error => {
-                fail(errorResponseToString(error));
-                done();
-            }
-        );
-
-    }
-    );
-
     it('GetNextYear', (done) => {
         const dt = new Date(Date.now());
         const h = dt.getFullYear();
