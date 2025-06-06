@@ -1,3 +1,3 @@
 const SITE_CONFIG = {
-  apiBaseuri: "http://localhost:5000/"
+  apiBaseuri: "https://fonlow.org/"
 }

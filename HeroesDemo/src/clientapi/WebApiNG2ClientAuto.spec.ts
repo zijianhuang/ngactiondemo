@@ -3,7 +3,7 @@ import { TestBed, waitForAsync } from '@angular/core/testing';
 import { DemoWebApi_DemoData_Client, DemoWebApi_Controllers_Client } from './WebApiCoreNg2ClientAuto';
 
 //const apiBaseUri = 'http://fonlow.org/'; // for DemoCoreWeb hosted in server of different timezone.
-const apiBaseUri = 'http://localhost:5000/'; // for DemoCoreWeb
+const apiBaseUri = 'https://fonlow.org/'; // for DemoCoreWeb
 
 
 export function valuesClientFactory(http: HttpClient) {
@@ -1336,50 +1336,6 @@ describe('SuperDemo API', () => {
     }
     );
 
-    /**
-     * ASP.NET 8 System.Text.Json cannot handle this.
-     */
-    it('getInt2D', (done) => {
-        service.getInt2D().subscribe(
-            data => {
-                expect(data![0][0]).toBe(1);
-                expect(data![0][3]).toBe(4);
-                expect(data![1][0]).toBe(5);
-                expect(data![1][3]).toBe(8);
-                done();
-            },
-            error => {
-                fail(errorResponseToString(error));
-                done();
-            }
-        );
-
-    }
-    );
-    /**
-fail: Microsoft.AspNetCore.Server.Kestrel[13]
-      Connection id "0HN1IFMQ8I8QJ", Request id "0HN1IFMQ8I8QJ:0000004F": An unhandled exception was thrown by the application.
-      System.NotSupportedException: Serialization and deserialization of 'System.Int32[,]' instances is not supported. Path: $.
-       ---> System.NotSupportedException: Serialization and deserialization of 'System.Int32[,]' instances is not supported.
-         at System.Text.Json.Serialization.Converters.UnsupportedTypeConverter`1.Write(Utf8JsonWriter writer, T value, JsonSerializerOptions options)
-         at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
-         at System.Text.Json.Serialization.JsonConverter`1.WriteCore(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
-         --- End of inner exception stack trace ---
-         at System.Text.Json.ThrowHelper.ThrowNotSupportedException(WriteStack& state, NotSupportedException ex)
-         at System.Text.Json.Serialization.JsonConverter`1.WriteCore(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
-         at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.SerializeAsync(Stream utf8Json, T rootValue, CancellationToken cancellationToken, Object rootValueBoxed)
-         at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.SerializeAsync(Stream utf8Json, T rootValue, CancellationToken cancellationToken, Object rootValueBoxed)
-         at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.SerializeAsync(Stream utf8Json, T rootValue, CancellationToken cancellationToken, Object rootValueBoxed)
-         at Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter.WriteResponseBodyAsync(OutputFormatterWriteContext context, Encoding selectedEncoding)
-         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeResultFilters>g__Awaited|28_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
-         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
-         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
-         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
-         at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
-         at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequests[TContext](IHttpApplication`1 application)
-
-     */
-
 
     it('getInt2DJagged', (done) => {
         service.getInt2DJagged().subscribe(
@@ -1388,24 +1344,6 @@ fail: Microsoft.AspNetCore.Server.Kestrel[13]
                 expect(data![0][3]).toBe(4);
                 expect(data![1][0]).toBe(5);
                 expect(data![1][3]).toBe(8);
-                done();
-            },
-            error => {
-                fail(errorResponseToString(error));
-                done();
-            }
-        );
-
-    }
-    );
-
-    /**
-     * ASP.NET 8 System.Text.Json could not handle this.
-     */
-    it('postInt2D', (done) => {
-        service.postInt2D([[1, 2, 3, 4], [5, 6, 7, 8]]).subscribe(
-            data => {
-                expect(data).toBeTruthy();
                 done();
             },
             error => {
