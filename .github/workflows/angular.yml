@@ -34,4 +34,4 @@ jobs:
       #working-directory: ./HeroesDemo
     - run: npm run build --if-present
       #working-directory: ./HeroesDemo
-    - run: npm test
+    - run: npm run test:ci
