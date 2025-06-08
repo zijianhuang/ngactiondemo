@@ -32,6 +32,6 @@ jobs:
         cache: 'npm'
     - run: npm ci
       #working-directory: ./HeroesDemo
-    - run: ng build --configuration=production
+    - run: npm run build --configuration=production
       #working-directory: ./HeroesDemo
     - run: npm run test:ci
