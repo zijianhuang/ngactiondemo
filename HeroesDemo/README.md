@@ -1,4 +1,6 @@
-This is based on the Tour of Heroes demo of NG tutorial, but with ReactiveForms bindings and a real Web service.
+This is based on the Tour of Heroes demo of NG tutorial, but with ReactiveForms bindings and a real Web service, with GitHub Actions angular.yml to build and test.
+
+The deployment of the production build to [the demo site on GitHub Pages](https://zijianhuang.github.io/ngactiondemo) is done occasionally and manually to branch gh-pages/docs, after building through buildProd.ps1.
 
 **Remarks:**
 

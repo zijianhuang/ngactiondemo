@@ -32,13 +32,6 @@ jobs:
         cache: 'npm'
     - run: npm ci
       #working-directory: ./HeroesDemo
-    - run: npm run build --configuration=production
+    - run: npm run build --configuration=dev
       #working-directory: ./HeroesDemo
     - run: npm run test:ci
-
-    - name: Deploy to gh pages
-      run: |
-        npx angular-cli-ghpages --dir=../ngdist/prod/browser
-      env:
-        CI: true
-        GH_TOKEN: ${{ secrets.GH_TOKEN }}
